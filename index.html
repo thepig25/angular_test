@@ -1,1 +1,33 @@
-test Page
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+		<!-- Style Sheets -->
+		<!-- <link rel="stylesheet" href="public/css/styles.css" /> -->
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+		
+		
+		<!-- JavaScript libraries -->
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+		<!-- Application components. A build step would be nice here. -->
+		<script src="public/js/ProfilesView.js"></script>
+		
+	</head>
+
+	<body>
+		<div ng-app="celebrityApp" class="actorDiv">
+			<div ng-controller="CelebrityView">
+				<accordion>
+					<accordion-group heading="{{eachDetail.firstName}} {{eachDetail.lastName}}" ng-repeat="eachDetail in info">
+						{{eachDetail.firstName}} {{eachDetail.lastName}}
+						 <div class='celebrityImage' style="background-image:url({{eachDetail.picture}})"></div>
+						{{eachDetail.bio}}
+					</accordion-group>
+				</accordion>
+			</div>
+		</div>
+	</body>
+</html>
