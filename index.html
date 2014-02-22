@@ -27,7 +27,7 @@
 		<!-- Main Bootstrap container -->
 		<div class="container">
 			
-			<div class="row">
+			<div class="row text-center">
 				<h1>Profile Browser</h1>
 			</div>
 
@@ -38,7 +38,9 @@
 						<!-- View for Desktop -->
 						<div class ="desktopView visible-lg visible-md">
 							<!-- Tab Links -->
-							<div class="col-md-2 menuContainer">
+							<div class="col-md-2 ">
+            				</div>
+							<div class="col-md-2">
 								<ul id="celebrityMenu" class="nav nav-tabs tabs-left menu">
 									<li ng-repeat="eachHeading in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index == selectedIndex }">
 										<a>{{eachHeading.firstName}} {{eachHeading.lastName}}</a>
