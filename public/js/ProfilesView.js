@@ -75,4 +75,9 @@ var data =
 function CelebrityView($scope) {
 	$scope.info = [];
 	$scope.info = data;
+	$scope.currentPage = 1;
+	$scope.selectedIndex = 0;
+	$scope.select= function(i) {
+		$scope.selectedIndex=i;
+	};
 }
