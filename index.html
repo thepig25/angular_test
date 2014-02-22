@@ -3,25 +3,28 @@
 
 	<head>
 		
-		<!-- Custom Style Sheets -->
+		<!-- Custom Style Sheets Generated From Sass using Grunt task-->
 		<link rel="stylesheet" href="public/css/styles.css" />
-		<!-- Vendor Style Sheets -->
-		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-		 <link type="text/css" rel="stylesheet" href="public/css/bootstrap.vertical-tabs.min.css">
-		<!-- JavaScript libraries -->
 		
-		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<!-- Vendor Style Sheets -->
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+		<link type="text/css" rel="stylesheet" href="public/css/bootstrap.vertical-tabs.min.css">
+		
+		<!-- JavaScript Vendor libraries -->
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/angular/angular.min.js"></script>
-		<script src="bower_components/bootstrap/bootstrap-tabcollapse.js"></script>
 		<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 		<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 		
 		<!-- Custom JS(Angular Controllor) -->
 		<script src="public/js/ProfilesView.js"></script>
+		<script src="public/js/data.js"></script>
+		<!-- Bind bootstrap tabcollapse for responsive -->
 		
 	</head>
 
 	<body>
+		<!-- Main Bootstrap container -->
 		<div class="container">
 			
 			<div class="row">
@@ -29,34 +32,59 @@
 			</div>
 
 			<div class="row">
-
+				<!-- Start Angular App -->
 				<div ng-app="celebrityApp" class="actorDiv">
 					<div ng-controller="CelebrityView">
- 						<div class="col-md-2 menuContainer">
-			              <ul class="nav nav-tabs tabs-left menu">
-			              		<li ng-repeat="eachHeading in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index == selectedIndex }">
-       								 <a>{{eachHeading.firstName}} {{eachHeading.lastName}}</a>
-       							</li>
-			              </ul>
-			            </div>
-			            <!-- profiles -->
-			            <div class="col-md-6 tab-content">
-			            	 <div class='tab-pane' id='celebrity{{eachProfile.id}}' ng-repeat="eachProfile in info | orderBy:'firstName'" ng-class="{ 'active': $index == selectedIndex }" >
-					             <div class='celebrityImage' style="background-image:url({{eachProfile.picture}})">
-					             	
-					             </div>
-								<h3>{{eachProfile.firstName}} {{eachProfile.lastName}}</h3>
-			 					<p>{{eachProfile.bio}}<p>
+						<!-- View for Desktop -->
+						<div class ="desktopView visible-lg visible-md">
+							<!-- Tab Links -->
+							<div class="col-md-2 menuContainer">
+								<ul id="celebrityMenu" class="nav nav-tabs tabs-left menu">
+									<li ng-repeat="eachHeading in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index == selectedIndex }">
+										<a>{{eachHeading.firstName}} {{eachHeading.lastName}}</a>
+									</li>
+								</ul>
+							</div>
+				            <!-- Tab Content -->
+							<div class="col-md-6 tab-content hidden-xs hidden-sm">
+								<div class='tab-pane' ng-repeat="eachProfile in info | orderBy:'firstName'" ng-class="{ 'active': $index == selectedIndex }">
+									<div class='celebrityImage' style="background-image:url({{eachProfile.picture}})">
+						             	
+									</div>
+									<h3>{{eachProfile.firstName}} {{eachProfile.lastName}}</h3>
+				 					<p>{{eachProfile.bio}}<p>
+						        </div>
+				            </div>
+				            <div class="col-md-2">
+				            
+				            </div>
+				        </div>
+				        <!-- View for Mobile and Tablet -->
+				         <!-- Render Slightly Different Markup for Mobile but retain selections -->
+				        <div class="mobileView visible-xs visible-sm">
+				 			<div class="panel-group ">
+					 			<div class="panel panel-default" ng-repeat="eachMobile in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index  == selectedIndex }">
+					               	<div class="panel-heading">
+					                	<h4 class="panel-title">
+						                 	<a class="collapsed">{{eachMobile.firstName}} {{eachMobile.lastName}}</a>
+					                	</h4>
+					              	</div>
+					              	<div class="panel-collapse" ng-class="{ 'collapse': $index  != selectedIndex }" > 
+					                  	<div class="panel-body">
+						                     <div class='celebrityImage' style="background-image:url({{eachMobile.picture}})">
+								             	
+											</div>
+											<h3>{{eachMobile.firstName}} {{eachMobile.lastName}}</h3>
+						 					<p>{{eachMobile.bio}}<p>
+					                	</div>
+					             	</div>
+					            </div>
 					        </div>
-			            </div>
-			            <div class="col-md-2">
-			            </div>
+				 		</div>
 
 					</div>
 				</div>
-
 			</div>
-
 		</div>
 	</body>
 </html>
