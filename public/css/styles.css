@@ -1,52 +1,66 @@
 /* styles.scss */
 /* Import Mixin */
-.container .celebrityImage {
-  height: 110px;
-  width: 110px;
-  float: left;
-  border: 4px solid #FFF;
-  -moz-box-shadow: 0px 0px 7px #666;
-  -webkit-box-shadow: 0px 0px 7px #666;
-  box-shadow: 0px 0px 7px #666;
-  margin: 0px 10px 0px 0px;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover; }
-.container .tabs-left li {
-  margin-bottom: 0px; }
-.container .tab-content {
-  font-size: 12px; }
-.container .mobileView .panel {
-  margin-top: 0px !important;
-  border-radius: 0px;
-  cursor: pointer; }
-  .container .mobileView .panel .panel-heading {
-    background-color: #d5d5d6;
-    border-radius: 0px; }
-    .container .mobileView .panel .panel-heading.active {
+.container {
+  /* Break on new lines */
+  /* Target only Mobile */
+  /* Target only Desktop */ }
+  .container .lineBreakPara {
+    white-space: pre-line; }
+  .container .celebrityImage {
+    height: 110px;
+    width: 110px;
+    float: left;
+    border: 4px solid #FFF;
+    -moz-box-shadow: 0px 0px 7px #666;
+    -webkit-box-shadow: 0px 0px 7px #666;
+    box-shadow: 0px 0px 7px #666;
+    margin: 0px 10px 0px 0px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover; }
+  .container .tabs-left li {
+    margin-bottom: 0px; }
+  .container .tab-content {
+    font-size: 12px; }
+  .container .mobileView .panel {
+    margin-top: 0px !important;
+    border-radius: 0px;
+    cursor: pointer; }
+    .container .mobileView .panel .panel-body {
+      padding-top: 0px !important; }
+    .container .mobileView .panel .panel-heading {
+      background-color: #d5d5d6;
+      border-radius: 0px; }
+      .container .mobileView .panel .panel-heading.active {
+        background-color: white;
+        font-weight: bold; }
+  .container .desktopView .tabs-left {
+    padding-top: 20px;
+    padding-bottom: 250px; }
+    .container .desktopView .tabs-left li {
+      border-top: 1px solid #cfcfcf;
+      border-bottom: 1px solid #cfcfcf; }
+      .container .desktopView .tabs-left li a {
+        border-radius: 0px; }
+  .container .desktopView .nav li:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-top: none; }
+    .container .desktopView .nav li:first-child a {
+      border-top-left-radius: 5px !important; }
+  .container .desktopView .nav li:last-child {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom: none; }
+    .container .desktopView .nav li:last-child a {
+      border-bottom-left-radius: 5px !important; }
+  .container .desktopView .nav li {
+    cursor: pointer;
+    background-color: #d5d5d6; }
+    .container .desktopView .nav li.active {
       background-color: white;
       font-weight: bold; }
-.container .desktopView .tabs-left {
-  padding-top: 20px;
-  padding-bottom: 250px; }
-  .container .desktopView .tabs-left li {
-    border-top: 1px solid #cfcfcf;
-    border-bottom: 1px solid #cfcfcf; }
-    .container .desktopView .tabs-left li a {
-      border-radius: 0px; }
-.container .desktopView .nav li:first-child {
-  border-top-left-radius: 5px;
-  border-top: none; }
-.container .desktopView .nav li:last-child {
-  border-bottom-left-radius: 5px;
-  border-bottom: none; }
-.container .desktopView .nav li {
-  cursor: pointer;
-  background-color: #d5d5d6; }
-  .container .desktopView .nav li.active {
-    background-color: white;
-    font-weight: bold; }
-  .container .desktopView .nav li a {
-    color: black;
-    padding: 5px 5px;
-    font-size: 12px; }
+    .container .desktopView .nav li a {
+      color: black;
+      padding: 5px 5px;
+      font-size: 12px; }

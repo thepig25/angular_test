@@ -3,6 +3,7 @@
 
 	<head>
 		
+		<title>Profile Browser Ciaran Hale</title>  
 		<!-- Custom Style Sheets Generated From Sass using Grunt task-->
 		<link rel="stylesheet" href="public/css/styles.css" />
 		
@@ -17,9 +18,10 @@
 		<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 		
 		<!-- Custom JS(Angular Controllor) -->
-		<script src="public/js/ProfilesView.js"></script>
+		<script src="public/js/ProfilesView.js"></script>	
+		<!-- Data File from brief-->
 		<script src="public/js/data.js"></script>
-		<!-- Bind bootstrap tabcollapse for responsive -->
+
 		
 	</head>
 
@@ -33,13 +35,13 @@
 
 			<div class="row">
 				<!-- Start Angular App -->
-				<div ng-app="celebrityApp" class="actorDiv">
-					<div ng-controller="CelebrityView">
+				<div ng-app="ProfilesViewApp" class="actorDiv">
+					<div ng-controller="ProfilesViewCTRL">
 						<!-- View for Desktop -->
 						<div class ="desktopView visible-lg visible-md">
 							<!-- Tab Links -->
 							<div class="col-md-2 ">
-            				</div>
+							</div>
 							<div class="col-md-2">
 								<ul id="celebrityMenu" class="nav nav-tabs tabs-left menu">
 									<li ng-repeat="eachHeading in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index == selectedIndex }">
@@ -47,45 +49,47 @@
 									</li>
 								</ul>
 							</div>
-				            <!-- Tab Content -->
+							<!-- Tab Content -->
 							<div class="col-md-6 tab-content hidden-xs hidden-sm">
 								<div class='tab-pane' ng-repeat="eachProfile in info | orderBy:'firstName'" ng-class="{ 'active': $index == selectedIndex }">
 									<div class='celebrityImage' style="background-image:url({{eachProfile.picture}})">
-						             	
+	
 									</div>
-									<h3>{{eachProfile.firstName}} {{eachProfile.lastName}}</h3>
-				 					<p>{{eachProfile.bio}}<p>
-						        </div>
-				            </div>
-				            <div class="col-md-2">
-				            
-				            </div>
-				        </div>
+									<h4>{{eachProfile.firstName}} {{eachProfile.lastName}}</h4>
+				 					<p class="lineBreakPara">{{eachProfile.bio}}<p>
+								</div>
+							</div>
+							<div class="col-md-2">
+
+							</div>
+						</div>
 				        <!-- View for Mobile and Tablet -->
-				         <!-- Render Slightly Different Markup for Mobile but retain selections -->
-				        <div class="mobileView visible-xs visible-sm">
-				 			<div class="panel-group ">
-					 			<div class="panel panel-default" ng-repeat="eachMobile in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index  == selectedIndex }">
-					               	<div class="panel-heading">
-					                	<h4 class="panel-title">
-						                 	<a class="collapsed">{{eachMobile.firstName}} {{eachMobile.lastName}}</a>
-					                	</h4>
-					              	</div>
-					              	<div class="panel-collapse" ng-class="{ 'collapse': $index  != selectedIndex }" > 
-					                  	<div class="panel-body">
-						                     <div class='celebrityImage' style="background-image:url({{eachMobile.picture}})">
-								             	
-											</div>
+						<!-- Render Slightly Different Markup for Mobile but retain selections -->
+						<div class="mobileView visible-xs visible-sm">
+							<div class="panel-group ">
+								<div class="panel panel-default" ng-repeat="eachMobile in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index  == selectedIndex }">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="collapsed">{{eachMobile.firstName}} {{eachMobile.lastName}}</a>
+										</h4>
+									</div>
+									<div class="panel-collapse" ng-class="{ 'collapse': $index  != selectedIndex }" > 
+										<div class="panel-body">
 											<h3>{{eachMobile.firstName}} {{eachMobile.lastName}}</h3>
-						 					<p>{{eachMobile.bio}}<p>
-					                	</div>
-					             	</div>
-					            </div>
-					        </div>
-				 		</div>
+											<div class='celebrityImage' style="background-image:url({{eachMobile.picture}})">
+
+											</div>
+						 					<p class="lineBreakPara">{{eachMobile.bio}}<p>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
 
 					</div>
 				</div>
+				<!-- End Angular App -->
 			</div>
 		</div>
 	</body>
