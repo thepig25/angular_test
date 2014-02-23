@@ -1,1 +1,96 @@
-test Page
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+		<title>Profile Browser Ciaran Hale</title>  
+		<!-- Custom Style Sheets Generated From Sass using Grunt task-->
+		<link type="text/css"  rel="stylesheet" href="public/css/styles.css" />
+		
+		<!-- Vendor Style Sheets -->
+		<link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+		<link type="text/css" rel="stylesheet" href="public/css/bootstrap.vertical-tabs.min.css">
+		
+		<!-- JavaScript Vendor libraries -->
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+		
+		<!-- Custom JS(Angular Controllor) -->
+		<script src="public/js/ProfilesView.js"></script>	
+		<!-- Data File from brief-->
+		<script src="public/js/data.js"></script>
+
+		
+	</head>
+
+	<body>
+		<!-- Main Bootstrap container -->
+		<div class="container">
+			
+			<div class="row text-center">
+				<h1>Profile Browser</h1>
+			</div>
+
+			<div class="row">
+				<!-- Start Angular App -->
+				<div ng-app="ProfilesViewApp" class="actorDiv">
+					<div ng-controller="ProfilesViewCTRL">
+						<!-- View for Desktop -->
+						<div class ="desktopView visible-lg visible-md">
+							<!-- Tab Links -->
+							<div class="col-md-2 ">
+							</div>
+							<div class="col-md-2">
+								<ul class="nav nav-tabs tabs-left menu">
+									<li ng-repeat="eachHeading in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index == selectedIndex }">
+										<a>{{eachHeading.firstName}} {{eachHeading.lastName}}</a>
+									</li>
+								</ul>
+							</div>
+							<!-- Tab Content -->
+							<div class="col-md-6 tab-content hidden-xs hidden-sm">
+								<div class='tab-pane' ng-repeat="eachProfile in info | orderBy:'firstName'" ng-class="{ 'active': $index == selectedIndex }">
+									<div class='celebrityImage' style="background-image:url({{eachProfile.picture}})">
+	
+									</div>
+									<h4>{{eachProfile.firstName}} {{eachProfile.lastName}}</h4>
+				 					<p class="lineBreakPara">{{eachProfile.bio}}<p>
+								</div>
+							</div>
+							<div class="col-md-2">
+
+							</div>
+						</div>
+				        <!-- View for Mobile and Tablet -->
+						<!-- Render Slightly Different Markup for Mobile but retain selections -->
+						<div class="mobileView visible-xs visible-sm">
+							<div class="panel-group ">
+								<div class="panel panel-default" ng-repeat="eachMobile in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index  == selectedIndex }">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="collapsed">{{eachMobile.firstName}} {{eachMobile.lastName}}</a>
+										</h4>
+									</div>
+									<div class="panel-collapse" ng-class="{ 'collapse': $index  != selectedIndex }" > 
+										<div class="panel-body">
+											<h3>{{eachMobile.firstName}} {{eachMobile.lastName}}</h3>
+											<div class='celebrityImage' style="background-image:url({{eachMobile.picture}})">
+
+											</div>
+						 					<p class="lineBreakPara">{{eachMobile.bio}}<p>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- End Angular App -->
+			</div>
+		</div>
+	</body>
+</html>
