@@ -5,10 +5,10 @@
 		
 		<title>Profile Browser Ciaran Hale</title>  
 		<!-- Custom Style Sheets Generated From Sass using Grunt task-->
-		<link rel="stylesheet" href="public/css/styles.css" />
+		<link type="text/css"  rel="stylesheet" href="public/css/styles.css" />
 		
 		<!-- Vendor Style Sheets -->
-		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+		<link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
 		<link type="text/css" rel="stylesheet" href="public/css/bootstrap.vertical-tabs.min.css">
 		
 		<!-- JavaScript Vendor libraries -->
@@ -43,7 +43,7 @@
 							<div class="col-md-2 ">
 							</div>
 							<div class="col-md-2">
-								<ul id="celebrityMenu" class="nav nav-tabs tabs-left menu">
+								<ul class="nav nav-tabs tabs-left menu">
 									<li ng-repeat="eachHeading in info | orderBy:'firstName'" ng-click="select($index)" ng-class="{ 'active': $index == selectedIndex }">
 										<a>{{eachHeading.firstName}} {{eachHeading.lastName}}</a>
 									</li>
@@ -82,7 +82,7 @@
 						 					<p class="lineBreakPara">{{eachMobile.bio}}<p>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
